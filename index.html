@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da Praia Tech - Desenvolvimento e Automações</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="onda.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>Da Praia Tech</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#projects">Portfólio</a>
+                <a href="#pricing">Preços</a>
+                <div class="contact-popover-wrapper">
+                    <a href="#" id="openContactPopover">Contato</a>
+                    <div id="contactPopover" class="contact-popover">
+                        <div class="popover-arrow"></div>
+                        <textarea id="contactMessage" placeholder="Digite sua mensagem..." rows="4"></textarea>
+                        <button class="send-whatsapp-btn" onclick="sendWhatsAppMessage()">
+                            <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Transformando ideias em soluções digitais</h2>
+            <p>Especialistas em desenvolvimento web, aplicações e automações para impulsionar seu negócio</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h3>Portifólio de Demonstração</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h4>Barbearia</h4>
+                        <p>Site institucional para barbearia com design moderno e responsivo</p>
+                        <button class="view-project-btn" onclick="loadProject('https://dapraiatech.github.io/barbearia/')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visualizar Projeto
+                        </button>
+                        <a class="view-project-btn" href="https://dapraiatech.github.io/barbearia/" target="_blank" style="display:inline-block;margin-top:8px;text-align:center;">
+                            <i class="fas fa-globe"></i>
+                            Experiência Completa
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h4>Restaurante</h4>
+                        <p>Site institucional para restaurante com cardápio digital e design responsivo</p>
+                        <button class="view-project-btn" onclick="loadProject('https://dapraiatech.github.io/restaurante/')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visualizar Projeto
+                        </button>
+                        <a class="view-project-btn" href="https://dapraiatech.github.io/restaurante/" target="_blank" style="display:inline-block;margin-top:8px;text-align:center;">
+                            <i class="fas fa-globe"></i>
+                            Experiência Completa
+                        </a>
+                    </div>
+                </div>
+                <!-- Mais projetos podem ser adicionados aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h3>Preços</h3>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h4>Página Simples (Ex: Barbearia)</h4>
+                    <p class="price">R$ 100,00 <span class="price-once">(pagamento único)</span></p>
+                    <ul>
+                        <li>Landing page moderna e responsiva</li>
+                        <li>Exposição de serviços e produtos</li>
+                        <li>Exposição de links para as redes sociais</li>
+                    </ul>
+                    <div class="pricing-extra">
+                        <strong>Adicional:</strong>
+                        <ul>
+                            <li>Automação para agendamento automático + integração com planilhas para gerenciar atendimentos: <span class="price">+ R$ 50,00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <h4>Página Complexa (Ex: Restaurante)</h4>
+                    <p class="price">R$ 250,00 <span class="price-once">(pagamento único)</span></p>
+                    <ul>
+                        <li>Sistema de pedidos simples (recebimento via WhatsApp)</li>
+                        <li>Cardápio digital e exposição de produtos</li>
+                        <li>Design responsivo</li>
+                    </ul>
+                    <div class="pricing-extra">
+                        <strong>Adicional:</strong>
+                        <ul>
+                            <li>Automação para impressão automática de notas dos pedidos do WhatsApp: <span class="price">+ R$ 100,00</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="pricing-note">Valores únicos. O cliente paga apenas uma vez e o projeto é totalmente dele.</p>
+        </div>
+    </section>
+
+    <!-- Project Viewer Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="projectTitle">Visualizador de Projeto</h4>
+                <button class="close-btn" onclick="closeProject()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="projectFrame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <p>&copy; 2025 Da Praia Tech. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Logo Flutuante Da Praia Tech -->
+    <a href="https://www.instagram.com/dapraiatech/" target="_blank" class="floating-logo" title="Siga no Instagram">
+        <img src="marca.jpg" alt="Logo Da Praia Tech" />
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        // Popover de Contato
+        const openContactPopover = document.getElementById('openContactPopover');
+        const contactPopover = document.getElementById('contactPopover');
+        openContactPopover.onclick = function(e) {
+            e.preventDefault();
+            contactPopover.classList.toggle('show');
+            setTimeout(() => {
+                if (contactPopover.classList.contains('show')) {
+                    document.getElementById('contactMessage').focus();
+                }
+            }, 100);
+        }
+        document.addEventListener('click', function(event) {
+            if (!contactPopover.contains(event.target) && event.target !== openContactPopover) {
+                contactPopover.classList.remove('show');
+            }
+        });
+        function sendWhatsAppMessage() {
+            const message = document.getElementById('contactMessage').value.trim();
+            if (!message) {
+                alert('Por favor, digite uma mensagem.');
+                return;
+            }
+            const phone = '5548998053474';
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            contactPopover.classList.remove('show');
+        }
+    </script>
+</body>
+</html>
